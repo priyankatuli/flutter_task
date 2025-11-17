@@ -27,6 +27,7 @@ class HomeScreen extends StatelessWidget{
              Image.asset(IconPath.appBarIcon,width: 30,height: 40,),
              SizedBox(width: 7,),
              Text(AppConstants.appBarText,style: GoogleFonts.roboto(
+                fontSize: 19,
                 fontWeight: FontWeight.w500
            )),
   ]),
@@ -90,6 +91,8 @@ class HomeScreen extends StatelessWidget{
        ),
        ),
          bottomNavigationBar: BottomAppBar(
+           color: Colors.transparent,
+           elevation: 0,
            shape: CircularNotchedRectangle(),
            notchMargin: 6,
            child: SizedBox(
@@ -100,12 +103,13 @@ class HomeScreen extends StatelessWidget{
                  topRight: Radius.circular(12),
                ),
                child: Stack(
+                 clipBehavior: Clip.none,
                  children: [
                    Positioned(
                      top: -80, //svg ke bottomBar er upore shift koranor jonno negative value
                      left: 0,
                      right: -5,
-                     bottom: -70 ,
+                     bottom: -70,
                      child: FittedBox(
                        fit: BoxFit.cover,
                        child: SvgPicture.asset(
