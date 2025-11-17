@@ -24,7 +24,7 @@ class BuildSmallBox extends StatelessWidget {
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.red),
                   shape: BoxShape.rectangle,
-                  borderRadius: BorderRadius.circular(10)
+                  borderRadius: BorderRadius.circular(4)
               ),
               child: Text(value,style: GoogleFonts.roboto(
                   fontSize: 16

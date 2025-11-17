@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
 import 'package:flutter_task/core/theme/app_colors.dart';
 import 'package:flutter_task/features/screen/widgets/build_small_box.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
@@ -20,36 +18,38 @@ class BuildProgressPart extends StatelessWidget{
           Expanded(
             flex: 1,
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: CircularPercentIndicator(
-                    radius: 70,
-                    lineWidth: 12,
-                    percent: 0.1,
-                    center: Text(
-                      AppConstants.progressText4,
-                      style: GoogleFonts.roboto(fontSize: 16),
+                mainAxisSize: MainAxisSize.min,
+                //mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 0),
+                    child: CircularPercentIndicator(
+                      radius: 55,
+                      lineWidth: 9,
+                      percent: 0.6,
+                      center: Text(
+                        AppConstants.progressText4,
+                        style: GoogleFonts.roboto(fontSize: 14,),
+                      ),
+                      backgroundColor: AppColors.progressColor,
+                      progressColor: Colors.green,
                     ),
-                    backgroundColor: AppColors.progressColor,
-                    progressColor: Colors.green,
                   ),
-                ),
-                SizedBox(height: 7),
-                Text(
-                  AppConstants.progressText5,
-                  style: GoogleFonts.roboto(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w600,
+                  SizedBox(height: 7),
+                  Center(
+                    child: Text(
+                        AppConstants.progressText5,
+                        style: GoogleFonts.roboto(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          SizedBox(width: 30,),
+          SizedBox(width: 20,),
           Expanded(
             flex: 2,
             child: Column(
@@ -71,7 +71,7 @@ class BuildProgressPart extends StatelessWidget{
                       child: Text(
                         AppConstants.timeText7,
                         style: GoogleFonts.roboto(
-                          fontWeight: FontWeight.w600,
+                          fontWeight: FontWeight.bold,
                           fontSize: 10,
                         ),
                         overflow: TextOverflow.ellipsis,
