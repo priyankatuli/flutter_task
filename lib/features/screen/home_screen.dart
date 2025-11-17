@@ -84,49 +84,60 @@ class HomeScreen extends StatelessWidget{
                  begin: Alignment.topLeft,
                  end: Alignment.bottomRight
                ),
-
                shape: BoxShape.circle,
              ),
              child: Image.asset(IconPath.cameraImg,color: Colors.white,),
        ),
        ),
-       bottomNavigationBar: BottomAppBar(
-         shape: CircularNotchedRectangle(),
-         notchMargin: 6,
-         child: SizedBox(
-           height: 175,
-           child: Stack(
-               children: [
-                 SvgPicture.asset(IconPath.subtractBottomImg,
-                 fit: BoxFit.cover,
-                 width: double.infinity,
-                 height: 175,
+         bottomNavigationBar: BottomAppBar(
+           shape: CircularNotchedRectangle(),
+           notchMargin: 6,
+           child: SizedBox(
+             height: 100, //bottomNavigationBar er height
+             child: ClipRRect(
+               borderRadius: BorderRadius.only(
+                 topLeft: Radius.circular(12),   // top radius
+                 topRight: Radius.circular(12),
                ),
-                Obx(() => Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    IconButton(onPressed: (){
-                      //navigate to home using Getx
-                      controller.changedIndex(0);
-                    }, icon: Icon(Icons.home_outlined,color: controller.currentIndex.value == 0 ? Colors.black : Colors.grey,
-                    ),),
-                    SizedBox(width: 30,),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.calendar_month_outlined,
-                      color: controller.currentIndex.value == 1 ? Colors.black : Colors.grey,)),
-                    SizedBox(width: 30,),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.settings,
-                        color: controller.currentIndex.value == 2 ? Colors.black : Colors.grey)),
-                    SizedBox(width: 30,),
-                    IconButton(onPressed: (){}, icon: Icon(Icons.person,
-                        color: controller.currentIndex.value == 3 ? Colors.black : Colors.grey)),
-                  ],
-                )
-                )
-               ],
+               child: Stack(
+                 children: [
+                   Positioned(
+                     top: -80, //svg ke bottomBar er upore shift koranor jonno negative value
+                     left: 0,
+                     right: -5,
+                     bottom: -70 ,
+                     child: FittedBox(
+                       fit: BoxFit.cover,
+                       child: SvgPicture.asset(
+                         IconPath.subtractBottomImg,
+                         width: MediaQuery.of(context).size.width,
+                         height: 175,
+                       ),
+                     ),
+                   ),
+                   Obx(() => Row(
+                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                     children: [
+                       IconButton(onPressed: (){
+                         //navigate to home using Getx
+                         controller.changedIndex(0);
+                       }, icon: Icon(Icons.home_outlined,color: controller.currentIndex.value == 0 ? Colors.black : Colors.grey,
+                       ),),
+                       IconButton(onPressed: (){}, icon: Icon(Icons.calendar_month_outlined,
+                         color: controller.currentIndex.value == 1 ? Colors.black : Colors.grey,)),
+                       IconButton(onPressed: (){}, icon: Icon(Icons.settings,
+                           color: controller.currentIndex.value == 2 ? Colors.black : Colors.grey)),
+                       IconButton(onPressed: (){}, icon: Icon(Icons.person,
+                           color: controller.currentIndex.value == 3 ? Colors.black : Colors.grey)),
+                     ],
+                   )
+                   )
+                 ],
+               ),
              ),
-         ),
-         ),
-    );
+           ),
+         )
+     );
   }
 }
 
