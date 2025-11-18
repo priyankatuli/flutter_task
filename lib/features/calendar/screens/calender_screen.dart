@@ -2,14 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
 import 'package:flutter_task/core/constants/icon_path.dart';
 import 'package:flutter_task/core/theme/app_colors.dart';
-import 'package:flutter_task/features/controller/bottom_navigation_controller.dart';
-import 'package:flutter_task/features/controller/calendar_controller.dart';
-import 'package:flutter_task/features/screen/widgets/custom_bottom_bar.dart';
-import 'package:flutter_task/features/screen/widgets/custom_floating_action_button.dart';
+
 
 import 'package:get/get.dart';
 
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../core/widgets/custom_bottom_bar.dart';
+import '../../../core/widgets/custom_floating_action_button.dart';
+import '../../home/controller/bottom_navigation_controller.dart';
+import '../controller/calendar_controller.dart';
 
 class CalenderScreen extends StatelessWidget{
   CalenderScreen({super.key});

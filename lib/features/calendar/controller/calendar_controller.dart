@@ -40,8 +40,8 @@ class CalendarController extends GetxController {
     ]);
   }
 
-  void pickDay(int i) {
-    pickedIndex.value = i;
+  void pickDay(int index) {
+    pickedIndex.value = index;
   }
 
 }

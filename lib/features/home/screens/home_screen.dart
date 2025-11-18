@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
 import 'package:flutter_task/core/constants/icon_path.dart';
 import 'package:flutter_task/core/theme/app_colors.dart';
-import 'package:flutter_task/features/controller/bottom_navigation_controller.dart';
-import 'package:flutter_task/features/screen/widgets/build_card.dart';
-import 'package:flutter_task/features/screen/widgets/build_grid_menu.dart';
-import 'package:flutter_task/features/screen/widgets/build_progress_part.dart';
-import 'package:flutter_task/features/screen/widgets/custom_bottom_bar.dart';
-import 'package:flutter_task/features/screen/widgets/custom_floating_action_button.dart';
+import 'package:flutter_task/core/widgets/custom_bottom_bar.dart';
+import 'package:flutter_task/core/widgets/custom_floating_action_button.dart';
+import 'package:flutter_task/features/home/widgets/build_card.dart';
+import 'package:flutter_task/features/home/widgets/build_grid_menu.dart';
+import 'package:flutter_task/features/home/widgets/build_progress_part.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../controller/bottom_navigation_controller.dart';
 
 class HomeScreen extends StatelessWidget{
   HomeScreen({super.key});
