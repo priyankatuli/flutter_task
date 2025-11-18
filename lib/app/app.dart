@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/features/screen/calender_screen.dart';
 import 'package:flutter_task/features/screen/home_screen.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,8 @@ class MyApp extends StatelessWidget{
        title: 'Flutter Task',
        initialRoute: '/home',
        getPages: [
-         GetPage(name: '/home', page: () => HomeScreen(),)
+         GetPage(name: '/home', page: () => HomeScreen(),),
+         GetPage(name: '/calendar',page: () => CalenderScreen()),
        ],
        debugShowCheckedModeBanner: false,
        home: HomeScreen(),

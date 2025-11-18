@@ -16,8 +16,8 @@ class BuildSmallBox extends StatelessWidget {
         Row(
           children: value.split("").map((value){
             return Container(
-              width: 25,
-              height: 40,
+              width: 28,
+              height: 35,
               alignment: Alignment.center,
               margin: EdgeInsets.symmetric(horizontal: 2),
               padding: EdgeInsets.symmetric(horizontal: 3,vertical: 7),
@@ -27,7 +27,7 @@ class BuildSmallBox extends StatelessWidget {
                   borderRadius: BorderRadius.circular(4)
               ),
               child: Text(value,style: GoogleFonts.roboto(
-                  fontSize: 16
+                  fontSize: 14
               ),),
             );
           }).toList(),),

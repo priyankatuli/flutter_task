@@ -30,7 +30,7 @@ class BuildCard extends StatelessWidget{
                children: [
                  Text(AppConstants.cardText1,style: GoogleFonts.roboto(
                      fontWeight: FontWeight.bold,
-                     fontSize: 20
+                     fontSize: 17
                  ),),
                  SizedBox(height: 5,),
                  Text(AppConstants.cardText2,style: GoogleFonts.roboto(

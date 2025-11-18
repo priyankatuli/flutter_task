@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
 import 'package:flutter_task/core/constants/icon_path.dart';
 import 'package:flutter_task/core/theme/app_colors.dart';
@@ -7,6 +6,8 @@ import 'package:flutter_task/features/controller/bottom_navigation_controller.da
 import 'package:flutter_task/features/screen/widgets/build_card.dart';
 import 'package:flutter_task/features/screen/widgets/build_grid_menu.dart';
 import 'package:flutter_task/features/screen/widgets/build_progress_part.dart';
+import 'package:flutter_task/features/screen/widgets/custom_bottom_bar.dart';
+import 'package:flutter_task/features/screen/widgets/custom_floating_action_button.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -27,7 +28,7 @@ class HomeScreen extends StatelessWidget{
              Image.asset(IconPath.appBarIcon,width: 30,height: 40,),
              SizedBox(width: 7,),
              Text(AppConstants.appBarText,style: GoogleFonts.roboto(
-                fontSize: 19,
+                fontSize: 17,
                 fontWeight: FontWeight.w500
            )),
   ]),
@@ -71,76 +72,17 @@ class HomeScreen extends StatelessWidget{
           )
        ),
        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-       floatingActionButton: FloatingActionButton(onPressed: (){},
-       backgroundColor: Colors.transparent,
-         elevation: 0,
-         child: Container(
-             width: 70,
-             height: 70,
-             decoration: BoxDecoration(
-               gradient: LinearGradient(colors: [
-                 Colors.green.shade200,
-                 Colors.green.shade700
-               ],
-                 begin: Alignment.topLeft,
-                 end: Alignment.bottomRight
-               ),
-               shape: BoxShape.circle,
-             ),
-             child: Image.asset(IconPath.cameraImg,color: Colors.white,),
+       floatingActionButton: CustomFloatingActionButton(onPressed: (){},
+           imagePath: IconPath.cameraImg
        ),
-       ),
-         bottomNavigationBar: BottomAppBar(
-           color: Colors.transparent,
-           elevation: 0,
-           shape: CircularNotchedRectangle(),
-           notchMargin: 6,
-           child: SizedBox(
-             height: 100, //bottomNavigationBar er height
-             child: ClipRRect(
-               borderRadius: BorderRadius.only(
-                 topLeft: Radius.circular(12),   // top radius
-                 topRight: Radius.circular(12),
-               ),
-               child: Stack(
-                 clipBehavior: Clip.none,
-                 children: [
-                   Positioned(
-                     top: -80, //svg ke bottomBar er upore shift koranor jonno negative value
-                     left: 0,
-                     right: -5,
-                     bottom: -70,
-                     child: FittedBox(
-                       fit: BoxFit.cover,
-                       child: SvgPicture.asset(
-                         IconPath.subtractBottomImg,
-                         width: MediaQuery.of(context).size.width,
-                         height: 175,
-                       ),
-                     ),
-                   ),
-                   Obx(() => Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                     children: [
-                       IconButton(onPressed: (){
-                         //navigate to home using Getx
-                         controller.changedIndex(0);
-                       }, icon: Icon(Icons.home_outlined,color: controller.currentIndex.value == 0 ? Colors.black : Colors.grey,
-                       ),),
-                       IconButton(onPressed: (){}, icon: Icon(Icons.calendar_month_outlined,
-                         color: controller.currentIndex.value == 1 ? Colors.black : Colors.grey,)),
-                       IconButton(onPressed: (){}, icon: Icon(Icons.settings,
-                           color: controller.currentIndex.value == 2 ? Colors.black : Colors.grey)),
-                       IconButton(onPressed: (){}, icon: Icon(Icons.person,
-                           color: controller.currentIndex.value == 3 ? Colors.black : Colors.grey)),
-                     ],
-                   )
-                   )
-                 ],
-               ),
-             ),
-           ),
+         bottomNavigationBar: Obx(() => CustomBottomBar(
+             currentIndex: controller.currentIndex.value,
+             onTap: (index){
+                 controller.changedIndex(index);
+             },
+             svgPath: IconPath.subtractBottomImg
          )
+         ),
      );
   }
 }

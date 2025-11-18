@@ -23,7 +23,7 @@ class BuildGridMenu extends StatelessWidget{
         itemCount: menuIcons.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 3,
-            mainAxisSpacing: 17,
+            mainAxisSpacing: 10,
             crossAxisSpacing: 15,
             childAspectRatio: 0.8 // ratio joto choto height toto boro
         ),
@@ -32,8 +32,8 @@ class BuildGridMenu extends StatelessWidget{
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                  width: 75,
-                  height: 75,
+                  width: 55,
+                  height: 55,
                   decoration: BoxDecoration(
                     color: Colors.grey.shade200,
                     borderRadius: BorderRadius.circular(10),
@@ -44,12 +44,12 @@ class BuildGridMenu extends StatelessWidget{
                       fit: BoxFit.contain,),
                   )
               ),
-              SizedBox(height: 5,),
+              SizedBox(height: 3,),
               Text(AppConstants.menuText,style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 15
+                fontSize: 14
               ),),
-              SizedBox(height: 5,),
+              SizedBox(height: 2,),
               Text("0000${index+1}",style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 13

@@ -41,7 +41,7 @@ class BuildProgressPart extends StatelessWidget{
                     child: Text(
                         AppConstants.progressText5,
                         style: GoogleFonts.roboto(
-                          fontSize: 15,
+                          fontSize: 13,
                           fontWeight: FontWeight.w600,
                       ),
                     ),
@@ -80,16 +80,16 @@ class BuildProgressPart extends StatelessWidget{
                     ),
                   ],
                 ),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 // Red text
                 Text(
                   AppConstants.timeText8,
                   style: GoogleFonts.roboto(
                     color: Colors.red.shade400,
-                    fontSize: 17,
+                    fontSize: 15,
                   ),
                 ),
-                SizedBox(height: 6),
+                SizedBox(height: 5),
                 Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
