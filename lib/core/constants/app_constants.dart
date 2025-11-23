@@ -15,4 +15,7 @@ class AppConstants {
   static const String calenderText2 = 'আজ, ১২ জুলাই';
   static const String calenderText3 = 'নতুন যোগ করুন';
 
+  static const String ajkerKajText = 'আজকের কার্যক্রম';
+  static const String notunPageText = 'নতুন যোগ করুন';
+
 }
