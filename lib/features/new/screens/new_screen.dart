@@ -233,7 +233,6 @@ class _NewScreenState extends State<NewScreen> {
                mainAxisSize: MainAxisSize.min,
                children: [
                  Container(
-                   height: 80, // আইকনের overall সাইজ
                    width: 80,
                    alignment: Alignment.center,
                    decoration: BoxDecoration(
@@ -256,7 +255,7 @@ class _NewScreenState extends State<NewScreen> {
                  SizedBox(height: 20,),
                  //title
                  Text('নতুন অনুচ্ছেদ সংরক্ষণ',style: TextStyle(
-                   fontSize: 18,
+                   fontSize: 17,
                    fontWeight: FontWeight.bold
                  ),
                    textAlign: TextAlign.center,
@@ -289,7 +288,7 @@ class _NewScreenState extends State<NewScreen> {
 
                        ),
                        child: Text('আরও যোগ করুন',style: TextStyle(
-                         fontSize: 15,
+                         fontSize: 17,
                          color: Colors.white
                        ),)
                    ),

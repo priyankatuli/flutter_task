@@ -25,8 +25,7 @@ class CalenderScreen extends StatelessWidget{
   Widget build(BuildContext context) {
 
     //default style set howa
-
-      return PopScope(
+    return PopScope(
         canPop: true,
         onPopInvoked: (didPop){
           if(!didPop) return;
