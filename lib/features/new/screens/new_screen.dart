@@ -228,33 +228,4 @@ class _NewScreenState extends State<NewScreen> {
     }
 
   }
-  Future<void> _showTime(BuildContext context) async{
-    final List<String> times = ['10.00', '11.00','12.00','4.00'];
-    String ? selectedTime = await showModalBottomSheet<String>(
-        context: context,
-        shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-                top: Radius.circular(20)
-            )
-        ),
-        builder: (context){
-          return Padding(
-            padding: EdgeInsets.all(15),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(" সময় নির্বাচন করুন", style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold)),
-                SizedBox(height: 10),
-                ...times.map((item) => ListTile(
-                  title: Text(item),
-                  onTap: () => Navigator.pop(context, item),)),
-              ],
-            ),
-          );});
-
-    if(selectedTime!=null){
-       dateAndTimeController.text = selectedTime;
-    }
-
-  }
 }
