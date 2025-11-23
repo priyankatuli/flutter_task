@@ -23,6 +23,9 @@ class CalenderScreen extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
+
+    //default style set howa
+
       return PopScope(
         canPop: true,
         onPopInvoked: (didPop){
@@ -34,6 +37,7 @@ class CalenderScreen extends StatelessWidget{
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
+            systemOverlayStyle: SystemUiOverlayStyle.dark,  //icon dark
             leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu)),
             title: Center(
               child: Text(AppConstants.calenderText1,style: GoogleFonts.roboto(

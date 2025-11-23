@@ -1,5 +1,6 @@
 import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
 import 'package:flutter_task/core/constants/icon_path.dart';
 import 'package:flutter_task/core/theme/app_colors.dart';
@@ -21,10 +22,18 @@ class HomeScreen extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
 
+    //appbar eita ke override kore
+   /* SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light
+    ));
+    */
      return Scaffold(
        appBar: AppBar(
          backgroundColor: Colors.transparent,
          elevation: 0,
+         systemOverlayStyle: SystemUiOverlayStyle.dark,
          leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu)),
          title: Row(
            children: [

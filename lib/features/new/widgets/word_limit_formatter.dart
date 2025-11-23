@@ -13,7 +13,6 @@ class WordLimitFormatter extends TextInputFormatter {
     if (words.length > wordLimit) {
       return oldValue;   //user form e last j value ta diyechilo oita show korbe
     }
-
     return newValue;
   }
 }
