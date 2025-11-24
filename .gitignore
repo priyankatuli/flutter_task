@@ -11,6 +11,8 @@
 .svn/
 .swiftpm/
 migrate_working_dir/
+lib/features/bindings/controller_bindings.dart
+
 
 # IntelliJ related
 *.iml
