@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/widgets/main_bottom_navigation_screen.dart';
-import 'package:flutter_task/features/bindings/controller_bindings.dart';
-import 'package:flutter_task/features/new/screens/new_screen.dart';
+import 'package:flutter_task/features/new/screens/add_new_task_screen.dart';
 import 'package:get/get.dart';
 
 class MyApp extends StatelessWidget{
@@ -21,7 +20,7 @@ class MyApp extends StatelessWidget{
          ),
          */
          //GetPage(name: '/calendar',page: () => CalenderScreen()),
-         GetPage(name: '/new',page: () => NewScreen()),
+         GetPage(name: '/new',page: () => AddNewTaskScreen()),
 
        ],
        debugShowCheckedModeBanner: false,

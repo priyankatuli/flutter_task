@@ -5,14 +5,14 @@ import 'package:flutter_task/features/new/widgets/word_limit_formatter.dart';
 
 import '../../../core/constants/icon_path.dart';
 
-class NewScreen extends StatefulWidget{
-  const NewScreen({super.key});
+class AddNewTaskScreen extends StatefulWidget{
+  const AddNewTaskScreen({super.key});
 
   @override
-  State<NewScreen> createState() => _NewScreenState();
+  State<AddNewTaskScreen> createState() => _NewScreenState();
 }
 
-class _NewScreenState extends State<NewScreen> {
+class _NewScreenState extends State<AddNewTaskScreen> {
 
   final TextEditingController paragraphController = TextEditingController();
   final TextEditingController paragraphDivisionController =  TextEditingController();
@@ -23,7 +23,6 @@ class _NewScreenState extends State<NewScreen> {
 
   @override
   Widget build(BuildContext context) {
-
       return Scaffold(
         appBar: AppBar(
             backgroundColor: Colors.transparent,
@@ -123,7 +122,6 @@ class _NewScreenState extends State<NewScreen> {
                         ),
                         suffixIcon: IconButton(
                             onPressed: () async{
-
                                 TimeOfDay ? pickedTime = await showTimePicker(
                                     context: context,
                                     initialTime: TimeOfDay.now()
