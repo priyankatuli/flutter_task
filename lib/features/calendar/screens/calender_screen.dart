@@ -2,16 +2,9 @@ import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
-import 'package:flutter_task/core/constants/icon_path.dart';
 import 'package:flutter_task/core/theme/app_colors.dart';
-
-
 import 'package:get/get.dart';
-
 import 'package:google_fonts/google_fonts.dart';
-
-import '../../../core/widgets/custom_bottom_nav_bar.dart';
-import '../../../core/widgets/custom_floating_action_button.dart';
 import '../../home/controller/bottom_navigation_controller.dart';
 import '../controller/calendar_controller.dart';
 
@@ -33,34 +26,7 @@ class CalenderScreen extends StatelessWidget{
 
         },
         child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.transparent,
-            elevation: 0,
-            systemOverlayStyle: SystemUiOverlayStyle.dark,  //icon dark
-            leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu)),
-            title: Center(
-              child: Text(AppConstants.calenderText1,style: GoogleFonts.roboto(
-                        fontSize: 17,
-                        fontWeight: FontWeight.w500
-                    )),
-            ),
-            actions: [
-              Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
-                  child: badges.Badge(
-                    position: badges.BadgePosition.topEnd(top: 0,end: 0),
-                    badgeStyle: badges.BadgeStyle(
-                        badgeColor: AppColors.dotColor,
-                        padding: EdgeInsets.all(5)
-                    ),
-                    child: CircleAvatar(
-                      backgroundColor: Colors.grey.shade200,
-                      child: IconButton(onPressed: (){}, icon: Icon(Icons.notifications_active_outlined,color: AppColors.notificationColor,size: 20,)),
-                    ),
-                  )
-              )
-            ],
-          ),
+          appBar: _buildAppBar(),
           body: SingleChildScrollView(
             child: Padding(
                 padding: EdgeInsets.only(left: 12,top: 12),
@@ -170,7 +136,7 @@ class CalenderScreen extends StatelessWidget{
                                 children: [
                                   Padding(
                                     padding: EdgeInsets.all(10),
-                                    child: Text(AppConstants.ajkerKajText,style: TextStyle(
+                                    child: Text(AppConstants.todayWorkText,style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.bold
                                     ),),
@@ -252,21 +218,38 @@ class CalenderScreen extends StatelessWidget{
 
                ]),
                         ))])
-      )),
-          floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-          floatingActionButton: CustomFloatingActionButton(onPressed: (){},
-              imagePath: IconPath.cameraImg,
-          ),
-          bottomNavigationBar: Obx(() => CustomBottomNavBar(
-              currentIndex: controller.currentIndex.value, 
-              onTap: (index){
-                controller.changedIndex(index);
-              },
-              svgPath: IconPath.subtractBottomImg
-          ),
-        ),
-        )
+      )),)
       );
+  }
+  AppBar _buildAppBar() {
+    return AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          systemOverlayStyle: SystemUiOverlayStyle.dark,  //icon dark
+          leading: IconButton(onPressed: (){}, icon: Icon(Icons.menu)),
+          title: Center(
+            child: Text(AppConstants.calenderText1,style: GoogleFonts.roboto(
+                      fontSize: 17,
+                      fontWeight: FontWeight.w500
+                  )),
+          ),
+          actions: [
+            Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10,vertical: 5),
+                child: badges.Badge(
+                  position: badges.BadgePosition.topEnd(top: 0,end: 0),
+                  badgeStyle: badges.BadgeStyle(
+                      badgeColor: AppColors.dotColor,
+                      padding: EdgeInsets.all(5)
+                  ),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.grey.shade200,
+                    child: IconButton(onPressed: (){}, icon: Icon(Icons.notifications_active_outlined,color: AppColors.notificationColor,size: 20,)),
+                  ),
+                )
+            )
+          ],
+        );
   }
 
 }

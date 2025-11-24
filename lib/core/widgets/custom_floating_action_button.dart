@@ -24,10 +24,9 @@ class CustomFloatingActionButton extends StatelessWidget{
          decoration: BoxDecoration(
            gradient: LinearGradient(colors: [
              Colors.green.shade200,
-             Colors.green.shade700
-           ],
+             Colors.green.shade700],
                begin: Alignment.topLeft,
-               end: Alignment.bottomRight
+               end: Alignment.bottomRight,
            ),
            shape: BoxShape.circle,
          ),

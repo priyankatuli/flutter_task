@@ -10,6 +10,7 @@ class IconPath{
   static const String menuIcon6 = '$_baseUrl/6.png';
   static const String subtractBottomImg = '$_baseUrl/Subtract.svg';
   static const String cameraImg = '$_baseUrl/img.png';
+  static const String checkImg = '$_baseUrl/check.png';
 
 
 

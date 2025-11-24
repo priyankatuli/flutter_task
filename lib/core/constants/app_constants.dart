@@ -1,5 +1,6 @@
 class AppConstants {
 
+  //home screen
   static const String appBarText = 'Flutter Task';
   static const String cardText1 = 'মোঃ মোহাইমেনুল রেজা';
   static const String cardText2 = 'সফটবিডি লিমিটেড';
@@ -11,11 +12,25 @@ class AppConstants {
   static const String timeText8= 'আরও বাকি';
   static const String menuText= 'মেনু নং';
 
+  //calendar screen
   static const String calenderText1 = 'সময়রেখা';
   static const String calenderText2 = 'আজ, ১২ জুলাই';
   static const String calenderText3 = 'নতুন যোগ করুন';
+  static const String todayWorkText = 'আজকের কার্যক্রম';
 
-  static const String ajkerKajText = 'আজকের কার্যক্রম';
-  static const String notunPageText = 'নতুন যোগ করুন';
+  //new screen
+  static const String newPageText = 'নতুন যোগ করুন';
+  static const String newParagraph1 = 'অনুচ্ছেদ';
+  static const String newParagraphCount = '৪৫ শব্দ';
+  static const String paragraphWriting = 'অনুচেছদ লিখুন';
+  static const String paragraphDivision = 'অনুচ্ছেদের বিভাগ';
+  static const String paragraphDivisionSelect = 'অনুচ্ছেদের বিভাগ নির্বাচন করুন';
+  static const String dateAndTime = 'তারিখ ও সময়';
+  static const String selectIt = 'নির্বাচন করুন';
+  static const String placeIt = 'স্থান';
+  static const String paragraphDetails = 'অনুচ্ছেদের বিবরণ';
+  static const String paragraphDetailsCount = '১২০ শব্দ';
+  static const String selectTaskDetails = 'কার্যক্রমের বিবরণ লিখুন';
+  static const String collectIt = 'সংরক্ষণ করুন';
 
 }

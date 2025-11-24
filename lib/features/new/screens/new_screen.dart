@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
 import 'package:flutter_task/features/new/widgets/word_limit_formatter.dart';
 
+import '../../../core/constants/icon_path.dart';
+
 class NewScreen extends StatefulWidget{
   const NewScreen({super.key});
 
@@ -28,7 +30,7 @@ class _NewScreenState extends State<NewScreen> {
             elevation: 0,
             systemOverlayStyle: SystemUiOverlayStyle.dark,
             centerTitle: true,
-            title: Text(AppConstants.notunPageText,style: TextStyle(fontSize: 15,),)
+            title: Text(AppConstants.newPageText,style: TextStyle(fontSize: 15,),)
           ),
         body: SingleChildScrollView(
           child: Padding(
@@ -41,8 +43,8 @@ class _NewScreenState extends State<NewScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('অনুচ্ছেদ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
-                      Text('৪৫ শব্দ',style: TextStyle(color: Colors.grey.shade600),)
+                      Text(AppConstants.newParagraph1,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                      Text(AppConstants.newParagraphCount,style: TextStyle(color: Colors.grey.shade600),)
                     ],
                   ),
                   SizedBox(height: 7,),
@@ -55,7 +57,7 @@ class _NewScreenState extends State<NewScreen> {
                     decoration: InputDecoration(
                       fillColor: Colors.white30,
                       filled: true,
-                      hintText: 'অনুচেছদ লিখুন',
+                      hintText: AppConstants.paragraphWriting,
                       hintStyle: TextStyle(
                           color: Colors.grey
                       ),
@@ -68,14 +70,14 @@ class _NewScreenState extends State<NewScreen> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                   SizedBox(height: 15,),
-                  Text('অনুচ্ছেদের বিভাগ',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                  Text(AppConstants.paragraphDivision,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                   SizedBox(height: 7,),
                   TextFormField(
                     controller: paragraphDivisionController,
                     keyboardType: TextInputType.text,
                     readOnly: true,
                     decoration: InputDecoration(
-                        hintText: 'অনুচ্ছেদের বিভাগ নির্বাচন করুন',
+                        hintText: AppConstants.paragraphDivisionSelect,
                         hintStyle: TextStyle(
                           color: Colors.grey
                         ),
@@ -92,7 +94,7 @@ class _NewScreenState extends State<NewScreen> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                   SizedBox(height: 10,),
-                  Text('তারিখ ও সময়',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                  Text(AppConstants.dateAndTime,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                   SizedBox(height: 10,),
                   TextFormField(
                     controller: dateAndTimeController,
@@ -112,7 +114,7 @@ class _NewScreenState extends State<NewScreen> {
                             }
                           },
                           icon: Icon(Icons.calendar_month_outlined,color: Colors.grey.shade400,size: 20,)),
-                        hintText: 'নির্বাচন করুন',
+                        hintText: AppConstants.selectIt,
                         hintStyle: TextStyle(
                             color: Colors.grey
                         ),
@@ -138,14 +140,14 @@ class _NewScreenState extends State<NewScreen> {
                     autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                   SizedBox(height: 10,),
-                  Text('স্থান',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                  Text(AppConstants.placeIt,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
                   SizedBox(height: 7,),
                   TextFormField(
                     controller: placeController,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                         prefixIcon: Icon(Icons.location_on,color: Colors.grey.shade400,size: 20,),
-                        hintText: 'নির্বাচন করুন',
+                        hintText: AppConstants.selectIt,
                         hintStyle: TextStyle(
                             color: Colors.grey
                         ),
@@ -165,11 +167,11 @@ class _NewScreenState extends State<NewScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text('অনুচ্ছেদের বিবরণ',style: TextStyle(
+                      Text(AppConstants.paragraphDetails,style: TextStyle(
                         fontSize: 15,
                         fontWeight: FontWeight.bold
                     ),),
-                      Text('১২০ শব্দ',style: TextStyle(fontSize: 15,color: Colors.grey.shade500),)
+                      Text(AppConstants.paragraphDetailsCount,style: TextStyle(fontSize: 15,color: Colors.grey.shade500),)
               ]
                   ),
                   SizedBox(height: 7,),
@@ -180,7 +182,7 @@ class _NewScreenState extends State<NewScreen> {
                     ],
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
-                        hintText: 'কার্যক্রমের বিবরণ লিখুন',
+                        hintText: AppConstants.selectTaskDetails,
                         hintStyle: TextStyle(
                             color: Colors.grey
                         ),
@@ -209,7 +211,7 @@ class _NewScreenState extends State<NewScreen> {
 
                       },child: Padding(
                       padding: EdgeInsets.symmetric(vertical: 12),
-                      child: Text('সংরক্ষণ করুন',style: TextStyle(fontSize: 16,),))),
+                      child: Text(AppConstants.collectIt,style: TextStyle(fontSize: 16,),))),
                 ],
               ),
             ),
@@ -224,79 +226,59 @@ class _NewScreenState extends State<NewScreen> {
       barrierDismissible: false, //dialog er baire screen tap korle dialog off hobe  na
       builder: (BuildContext context) {
          return Dialog(
-           shape: RoundedRectangleBorder(
-             borderRadius: BorderRadius.circular(20),
-           ),
-           child: Padding(
-             padding: EdgeInsets.all(20),
-             child: Column(
-               mainAxisSize: MainAxisSize.min,
-               children: [
-                 Container(
-                   width: 80,
-                   alignment: Alignment.center,
-                   decoration: BoxDecoration(
-                     color: Colors.green.withOpacity(0.1),
-                     shape: BoxShape.circle,
+             shape: RoundedRectangleBorder(
+               borderRadius: BorderRadius.circular(20),
+             ),
+             child: Padding(
+               padding: EdgeInsets.all(20),
+               child: Column(
+                 mainAxisSize: MainAxisSize.min,
+                 children: [
+                   Image.asset(IconPath.checkImg,width: 100,height: 100,fit: BoxFit.contain,),
+                 SizedBox(height: 20,),
+                   //title
+                   Text('নতুন অনুচ্ছেদ সংরক্ষণ',style: TextStyle(
+                     fontSize: 17,
+                     fontWeight: FontWeight.bold
                    ),
-                     child: Container(
-                       width: 50,
-                       alignment: Alignment.center,
-                       decoration: BoxDecoration(
-                         shape: BoxShape.circle
-                       ),
-                       child: const Icon(
-                         Icons.check,
-                         color: Colors.green,
-                         size: 80,
-                       ),
+                     textAlign: TextAlign.center,
+                   ),
+                   SizedBox(height: 20,),
+                   SizedBox(
+                     width: double.infinity,
+                     child: Text('আপনার সমমেয়েরেখায়তে নতুন অনুচ্ছেদ সংরক্ষণ সম্পূর্ণ হয়েছে',style: TextStyle(
+                         fontSize: 14,
+                         color: Colors.black54,
+                     ),
+                       textAlign: TextAlign.start,
+                       maxLines: 1,
+                       overflow: TextOverflow.ellipsis,
                      ),
                    ),
-                 SizedBox(height: 20,),
-                 //title
-                 Text('নতুন অনুচ্ছেদ সংরক্ষণ',style: TextStyle(
-                   fontSize: 17,
-                   fontWeight: FontWeight.bold
-                 ),
-                   textAlign: TextAlign.center,
-                 ),
-                 SizedBox(height: 20,),
-                 SizedBox(
-                   width: double.infinity,
-                   child: Text('আপনার সমমেয়েরেখায়তে নতুন অনুচ্ছেদ সংরক্ষণ সম্পূর্ণ হয়েছে',style: TextStyle(
-                       fontSize: 14,
-                       color: Colors.black54,
-                   ),
-                     textAlign: TextAlign.start,
-                     maxLines: 1,
-                     overflow: TextOverflow.ellipsis,
-                   ),
-                 ),
 
-                 SizedBox(height: 20,),
-                 SizedBox(
-                   width: double.infinity,
-                   child: ElevatedButton(onPressed: () {
-                     Navigator.pop(context);
-                   }
-                       ,style: ElevatedButton.styleFrom(
-                         backgroundColor: Colors.lightGreen.shade400,
-                         padding: EdgeInsets.symmetric(vertical: 17),
-                         shape: RoundedRectangleBorder(
-                             borderRadius: BorderRadius.circular(10)
-                         )
-
-                       ),
-                       child: Text('আরও যোগ করুন',style: TextStyle(
-                         fontSize: 17,
-                         color: Colors.white
-                       ),)
+                   SizedBox(height: 20,),
+                   SizedBox(
+                     width: double.infinity,
+                     child: ElevatedButton(onPressed: () {
+                       Navigator.pop(context);
+                     }
+                         ,style: ElevatedButton.styleFrom(
+                           backgroundColor: Colors.lightGreen.shade700,
+                           padding: EdgeInsets.symmetric(vertical: 17),
+                           shape: RoundedRectangleBorder(
+                               borderRadius: BorderRadius.circular(10)
+                           )
+                         ),
+                         child: Text('আরও যোগ করুন',style: TextStyle(
+                           fontSize: 17,
+                           color: Colors.white
+                         ),)
+                     ),
                    ),
-                 ),
-                 SizedBox(height: 10,)
-               ],
+                   SizedBox(height: 10,)
+                 ],
+               ),
              ),
-           ),
          );
     },);
  }
