@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_task/core/constants/app_constants.dart';
+import 'package:flutter_task/features/new/widgets/custom_button.dart';
+import 'package:flutter_task/features/new/widgets/custom_success_dialog.dart';
+import 'package:flutter_task/features/new/widgets/custom_text_field.dart';
+import 'package:flutter_task/features/new/widgets/date_time_field.dart';
+import 'package:flutter_task/features/new/widgets/dropdown_field.dart';
+import 'package:flutter_task/features/new/widgets/form_label.dart';
 import 'package:flutter_task/features/new/widgets/word_limit_formatter.dart';
 
 import '../../../core/constants/icon_path.dart';
@@ -42,124 +48,38 @@ class _NewScreenState extends State<AddNewTaskScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(AppConstants.newParagraph1,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                      FormLabel(AppConstants.newParagraph1),
                       Text(AppConstants.newParagraphCount,style: TextStyle(color: Colors.grey.shade600),)
                     ],
                   ),
                   SizedBox(height: 7,),
-                  TextFormField(
-                    controller: paragraphController,
-                    inputFormatters: [
-                       WordLimitFormatter(45),
-                    ],
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                      fillColor: Colors.white30,
-                      filled: true,
-                      hintText: AppConstants.paragraphWriting,
-                      hintStyle: TextStyle(
-                          color: Colors.grey
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(8)
-                      )
-                    ),
-                    maxLines: null,
-                    minLines: 1,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  CustomTextField(
+                      controller: paragraphController,
+                      hint: AppConstants.paragraphWriting,
+                      formatters: [WordLimitFormatter(45)],
+                      maxLines: 1,
                   ),
                   SizedBox(height: 15,),
-                  Text(AppConstants.paragraphDivision,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                  FormLabel(AppConstants.paragraphDivision),
                   SizedBox(height: 7,),
-                  TextFormField(
-                    controller: paragraphDivisionController,
-                    keyboardType: TextInputType.text,
-                    readOnly: true,
-                    decoration: InputDecoration(
-                        hintText: AppConstants.paragraphDivisionSelect,
-                        hintStyle: TextStyle(
-                          color: Colors.grey
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                      suffixIcon: IconButton(
-                          onPressed: () async{
-                            _showDropDownBox(context);
-                          },
-                          icon: Icon(Icons.keyboard_arrow_right_outlined,color: Colors.grey.shade400,size: 26,))
-                    ),
-                    maxLines: 1,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  DropdownField(
+                      controller: paragraphDivisionController,
+                      hint: AppConstants.paragraphDivisionSelect,
+                      onTap: () =>  _showDropDownBox(context),
                   ),
                   SizedBox(height: 10,),
-                  Text(AppConstants.dateAndTime,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                  FormLabel(AppConstants.dateAndTime),
                   SizedBox(height: 10,),
-                  TextFormField(
+                  DateTimeField(
                     controller: dateAndTimeController,
-                    readOnly: true, //user maunally type korte parbe na
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                        prefixIcon: IconButton(
-                          onPressed: () async{
-                            DateTime ? pickedDate = await showDatePicker(
-                                context: context,
-                                initialDate : DateTime.now(),
-                                firstDate : DateTime(2000),
-                                lastDate : DateTime(2100)
-                            );
-                            if(pickedDate != null){
-                              dateAndTimeController.text = "${pickedDate.day} / ${pickedDate.month} / ${pickedDate.year}";
-                            }
-                          },
-                          icon: Icon(Icons.calendar_month_outlined,color: Colors.grey.shade400,size: 20,)),
-                        hintText: AppConstants.selectIt,
-                        hintStyle: TextStyle(
-                            color: Colors.grey
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        suffixIcon: IconButton(
-                            onPressed: () async{
-                                TimeOfDay ? pickedTime = await showTimePicker(
-                                    context: context,
-                                    initialTime: TimeOfDay.now()
-                                );
-                                if(pickedTime != null){
-                                  String formattedTime = "${pickedTime.hour} : ${pickedTime.minute.toString().padLeft(2, '0')}";
-                                  dateAndTimeController.text = "${dateAndTimeController.text} $formattedTime";
-                                }
-
-                            },
-                            icon: Icon(Icons.keyboard_arrow_right_sharp,color: Colors.grey.shade400,size: 26,))
-                    ),
-                    maxLines: 1,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
                   ),
                   SizedBox(height: 10,),
-                  Text(AppConstants.placeIt,style: TextStyle(fontWeight: FontWeight.bold,fontSize: 15),),
+                  FormLabel(AppConstants.placeIt),
                   SizedBox(height: 7,),
-                  TextFormField(
-                    controller: placeController,
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.location_on,color: Colors.grey.shade400,size: 20,),
-                        hintText: AppConstants.selectIt,
-                        hintStyle: TextStyle(
-                            color: Colors.grey
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        ),
-                        suffixIcon: GestureDetector(
-                            onTap: (){
-                               _showDropDownBox(context);
-                            },
-                            child: Icon(Icons.keyboard_arrow_right_outlined,color: Colors.grey.shade400,size: 26,))
-                    ),
-                    maxLines: 1,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  DropdownField(
+                      controller: placeController,
+                      hint:  AppConstants.selectIt,
+                      onTap: () => _showDropDownBox(context),
                   ),
                   SizedBox(height: 10,),
                   Row(
@@ -173,43 +93,22 @@ class _NewScreenState extends State<AddNewTaskScreen> {
               ]
                   ),
                   SizedBox(height: 7,),
-                  TextFormField(
-                    controller: paragraphDetailsController,
-                    inputFormatters: [
-                       WordLimitFormatter(120)
-                    ],
-                    keyboardType: TextInputType.text,
-                    decoration: InputDecoration(
-                        hintText: AppConstants.selectTaskDetails,
-                        hintStyle: TextStyle(
-                            color: Colors.grey
-                        ),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10)
-                        )
-                    ),
-                    maxLines: 6,
-                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  CustomTextField(
+                      controller: paragraphDetailsController,
+                      hint: AppConstants.selectTaskDetails,
+                      formatters: [WordLimitFormatter(120)],
+                      maxLines: 6,
                   ),
                   SizedBox(height: 7,),
-                  ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          padding: EdgeInsets.symmetric(vertical: 0),
-                          shape: RoundedRectangleBorder(
-                             borderRadius: BorderRadius.circular(10)
-                          ),
-                          fixedSize: Size.fromWidth(double.maxFinite),
-                          foregroundColor: Colors.white,
-                          backgroundColor: Colors.green
-                        ),
-                      onPressed: () {
-                          if(_formKey.currentState!.validate()){
-                            showCustomDialog(context);
-                          }
-
-                      },child: Padding(
-                      padding: EdgeInsets.symmetric(vertical: 12),
-                      child: Text(AppConstants.collectIt,style: TextStyle(fontSize: 16,),))),
+                  CustomButton(
+                      text: AppConstants.collectIt,
+                      onPressed: (){
+                        if(_formKey.currentState!.validate()){
+                          showCustomDialog(context);
+                        }
+                      },
+                      fontSize: 16
+                  ),
                 ],
               ),
             ),
@@ -223,60 +122,14 @@ class _NewScreenState extends State<AddNewTaskScreen> {
       context: context,
       barrierDismissible: false, //dialog er baire screen tap korle dialog off hobe  na
       builder: (BuildContext context) {
-         return Dialog(
-             shape: RoundedRectangleBorder(
-               borderRadius: BorderRadius.circular(20),
-             ),
-             child: Padding(
-               padding: EdgeInsets.all(20),
-               child: Column(
-                 mainAxisSize: MainAxisSize.min,
-                 children: [
-                   Image.asset(IconPath.checkImg,width: 100,height: 100,fit: BoxFit.contain,),
-                 SizedBox(height: 20,),
-                   //title
-                   Text('নতুন অনুচ্ছেদ সংরক্ষণ',style: TextStyle(
-                     fontSize: 17,
-                     fontWeight: FontWeight.bold
-                   ),
-                     textAlign: TextAlign.center,
-                   ),
-                   SizedBox(height: 20,),
-                   SizedBox(
-                     width: double.infinity,
-                     child: Text('আপনার সমমেয়েরেখায়তে নতুন অনুচ্ছেদ সংরক্ষণ সম্পূর্ণ হয়েছে',style: TextStyle(
-                         fontSize: 14,
-                         color: Colors.black54,
-                     ),
-                       textAlign: TextAlign.start,
-                       maxLines: 1,
-                       overflow: TextOverflow.ellipsis,
-                     ),
-                   ),
-
-                   SizedBox(height: 20,),
-                   SizedBox(
-                     width: double.infinity,
-                     child: ElevatedButton(onPressed: () {
-                       Navigator.pop(context);
-                     }
-                         ,style: ElevatedButton.styleFrom(
-                           backgroundColor: Colors.lightGreen.shade700,
-                           padding: EdgeInsets.symmetric(vertical: 17),
-                           shape: RoundedRectangleBorder(
-                               borderRadius: BorderRadius.circular(10)
-                           )
-                         ),
-                         child: Text('আরও যোগ করুন',style: TextStyle(
-                           fontSize: 17,
-                           color: Colors.white
-                         ),)
-                     ),
-                   ),
-                   SizedBox(height: 10,)
-                 ],
-               ),
-             ),
+         return CustomSuccessDialog(
+             imagePath: IconPath.checkImg,
+             title: AppConstants.dialogTitle,
+             subTitle: AppConstants.dialogSubtitle,
+             buttonText: AppConstants.dialogButtonText,
+             onButtonTap: (){
+               Navigator.pop(context);
+             }
          );
     },);
  }
@@ -304,7 +157,6 @@ class _NewScreenState extends State<AddNewTaskScreen> {
           ],
          ),
          );});
-
     if(selected!=null){
       paragraphDivisionController.text = selected;
       placeController.text = selected;
@@ -320,8 +172,5 @@ class _NewScreenState extends State<AddNewTaskScreen> {
     paragraphDetailsController.dispose();
     dateAndTimeController.dispose();
     placeController.dispose();
-
   }
-
-
 }

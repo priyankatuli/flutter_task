@@ -36,7 +36,9 @@ class CustomHomeAppBar extends StatelessWidget implements PreferredSizeWidget{
              ),
              child: CircleAvatar(
                backgroundColor: Colors.grey.shade200,
-               child: IconButton(onPressed: (){}, icon: Icon(Icons.notifications_active_outlined,color: AppColors.notificationColor,size: 20,)),
+               child: IconButton(onPressed: (){
+
+               }, icon: Icon(Icons.notifications_active_outlined,color: AppColors.notificationColor,size: 20,)),
              ),
            ),
          )

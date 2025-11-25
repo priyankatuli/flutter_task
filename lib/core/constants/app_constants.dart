@@ -33,4 +33,9 @@ class AppConstants {
   static const String selectTaskDetails = 'কার্যক্রমের বিবরণ লিখুন';
   static const String collectIt = 'সংরক্ষণ করুন';
 
+  //dialog
+static const String dialogTitle = 'নতুন অনুচ্ছেদ সংরক্ষণ';
+static const String dialogSubtitle = 'আপনার সমমেয়েরেখায়তে নতুন অনুচ্ছেদ সংরক্ষণ সম্পূর্ণ হয়েছে';
+static const String dialogButtonText = 'আরও যোগ করুন';
+
 }

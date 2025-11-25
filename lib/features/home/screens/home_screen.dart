@@ -31,34 +31,12 @@ class HomeScreen extends StatelessWidget{
                 children: [
                   BuildCard(),
                   //SizedBox(height: 5,),
-                  /*IndexedStack(
-                    index: 0,
-                    children: [
-                      HomeScreen(),
-                      CalenderScreen()
-                    ],
-                  ),*/
                   BuildProgressPart(),
                   //SizedBox(height: 5,),
                   BuildGridMenu(),
                 ])
           )
        ),
-       /*
-       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-       floatingActionButton: CustomFloatingActionButton(onPressed: (){},
-           imagePath: IconPath.cameraImg
-       ),
-        */
-         /*bottomNavigationBar: Obx(() => CustomBottomNavBar(
-             currentIndex: controller.currentIndex.value,
-             onTap: (index){
-                 controller.changedIndex(index);
-             },
-             svgPath: IconPath.subtractBottomImg
-         ),
-         ),
-          */
        drawer: Drawer(),
      );
   }
